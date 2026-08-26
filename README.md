@@ -206,10 +206,6 @@ Possible next steps for Flowin include:
 - Improved accessibility and keyboard navigation.
 - Offline/PWA enhancements.
 
-## License
-
-No license information was included in the supplied project files. Add a license before publicly distributing or open-sourcing the project.
-
 ## Credits
 
 **Flowin** — a habit and personal-growth experience focused on turning consistency into visible progress.
