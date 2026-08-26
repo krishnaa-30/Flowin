@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flowin — Habit Tracker</title>
+    <meta name="theme-color" content="#29253d" />
+    <meta name="application-name" content="Flowin" />
+    <link rel="icon" href="flowin-logo.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="flowin-logo.svg" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section class="auth-screen" id="authScreen">
+      <div class="auth-panel">
+        <a class="auth-brand" href="#"><img src="flowin-logo.svg" alt="" />Flowin</a>
+        <p class="eyebrow">MAKE SPACE FOR WHAT MATTERS</p>
+        <h1 id="authTitle">Welcome back.</h1>
+        <p class="auth-subtitle" id="authSubtitle">Pick up where your intentions left off.</p>
+        <form id="authForm">
+          <label id="nameField">Your name<input id="authName" placeholder="What should we call you?" maxlength="25" /></label>
+          <label>Password<input required id="authPassword" type="password" placeholder="At least 4 characters" minlength="4" /></label>
+          <button class="save-habit auth-submit" type="submit" id="authSubmit">Create my account</button>
+        </form>
+        <p class="auth-switch" id="authSwitch">Already have an account? <button type="button" id="switchAuth">Log in</button></p>
+      </div>
+      <div class="auth-side"><div><span class="side-mark">✦</span><h2>Progress, not perfection.</h2><p>Build a life that flows with you, one small ritual at a time.</p></div></div>
+    </section>
+    <aside class="sidebar">
+      <a class="brand" href="#"><img src="flowin-logo.svg" alt="" />Flowin</a>
+      <nav>
+        <button class="nav-link active" data-view="today"><span>⌂</span> Today</button>
+        <button class="nav-link" data-view="insights"><span>◒</span> Insights</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="nav-link settings" id="logoutButton"><span>↪</span> Log out</button>
+      </div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <button class="mobile-menu" aria-label="Open menu">☰</button>
+        <div>
+          <p class="eyebrow" id="dateLabel">TUESDAY, AUGUST 25</p>
+          <h1 id="pageTitle">Make today count.</h1>
+        </div>
+        <div class="top-actions">
+          <button class="icon-button" id="themeButton" title="Toggle theme">☾</button>
+          <button class="avatar" id="userAvatar" title="Your profile">K</button>
+        </div>
+      </header>
+
+      <section id="today" class="view active-view">
+        <div class="hero-grid">
+          <article class="quote-card">
+            <div class="quote-orb orb-one"></div><div class="quote-orb orb-two"></div>
+            <span class="quote-mark">“</span>
+            <p id="quoteText">Success is the sum of small efforts, repeated day in and day out.</p>
+            <span class="quote-author" id="quoteAuthor">— Robert Collier</span>
+          </article>
+          <article class="progress-card">
+            <div class="progress-copy"><span class="tiny-label">TODAY'S PROGRESS</span><strong id="progressText">0 of 0 complete</strong><p id="progressMessage">A fresh page. Let’s begin.</p></div>
+            <div class="progress-ring" id="progressRing"><span id="progressPercent">0%</span></div>
+          </article>
+        </div>
+
+        <div class="section-heading">
+          <div><h2>Your habits</h2><p>Small promises to yourself.</p></div>
+          <button class="add-button" id="openHabitModal"><span>+</span> New habit</button>
+        </div>
+        <div class="habit-list" id="habitList"></div>
+
+        <section class="bottom-grid">
+          <article class="week-card"><div class="card-title-row"><div><h2>This week</h2><p>Your rhythm at a glance.</p></div><span class="week-score" id="weekScore">0%</span></div><div class="week-chart" id="weekChart"></div></article>
+          <article class="streak-card"><span class="streak-emoji">🔥</span><div><span class="tiny-label">LONGEST STREAK</span><strong id="bestStreak">0 days</strong><p id="streakHabit">Start your first habit today.</p></div></article>
+        </section>
+        <section class="activity-section">
+          <div class="section-heading"><div><h2>Your consistency</h2><p>A year of small wins, beautifully visible.</p></div><span class="activity-total" id="activityTotal">0 check-ins</span></div>
+          <article class="heatmap-card"><div class="heatmap-scroll"><div class="heatmap" id="yearHeatmap"></div></div><div class="heatmap-footer"><span>Less</span><i class="level-0"></i><i class="level-1"></i><i class="level-2"></i><i class="level-3"></i><i class="level-4"></i><span>More</span></div></article>
+        </section>
+        <section class="rpg-section">
+          <div class="section-heading"><div><h2>Your Flowin world</h2><p>Small actions grow a world worth returning to.</p></div><span class="level-pill" id="levelPill">Level 1</span></div>
+          <article class="rpg-card"><div class="world-scene" id="worldScene"><span class="cloud cloud-one">☁</span><span class="cloud cloud-two">☁</span><span class="character" id="character">🧑‍🌾</span><span class="plant plant-one">🌱</span><span class="plant plant-two">🌻</span><span class="plant plant-three">🌿</span><span class="world-name" id="worldName">Seedling Garden</span></div><div class="rpg-stats"><div><span class="tiny-label">ENERGY</span><strong id="energyText">100 / 100</strong><div class="meter"><i id="energyBar"></i></div></div><div><span class="tiny-label">XP TO NEXT LEVEL</span><strong id="xpText">0 / 100 XP</strong><div class="meter xp-meter"><i id="xpBar"></i></div></div><p id="rpgMessage">Complete a habit to help your garden flourish.</p></div><div class="badge-row" id="badgeRow"></div></article>
+        </section>
+      </section>
+
+      <section id="insights" class="view"><div class="section-heading"><div><h2>Your insights</h2><p>Patterns worth celebrating.</p></div></div><div class="insight-grid" id="insightGrid"></div></section>
+    </main>
+
+    <dialog id="habitModal"><form method="dialog" id="habitForm"><button class="close-modal" value="cancel">×</button><p class="eyebrow">A NEW RITUAL</p><h2>Create a habit</h2><label>Habit name<input required id="habitName" placeholder="e.g. Read for 20 minutes" maxlength="45" /></label><label>Category<select id="habitCategory"><option value="Mind">Mind</option><option value="Health">Health</option><option value="Growth">Growth</option><option value="Home">Home</option><option value="custom">+ Create a category</option></select></label><label class="custom-category" id="customCategoryField">Your category<input id="customCategory" placeholder="e.g. Creativity" maxlength="20" /></label><label>Repeat<select id="habitRepeat"><option value="daily">Every day</option><option value="custom">Selected days</option></select></label><div class="day-picker" id="dayPicker" aria-label="Days of the week"><button type="button" data-day="1">M</button><button type="button" data-day="2">T</button><button type="button" data-day="3">W</button><button type="button" data-day="4">T</button><button type="button" data-day="5">F</button><button type="button" data-day="6">S</button><button type="button" data-day="0">S</button></div><label>Reminder <span class="optional">optional</span><input id="reminderTime" type="time" /></label><label>Color<div class="color-picker" id="colorPicker"><button type="button" class="color-choice selected" data-color="#7567e8" style="background:#7567e8"></button><button type="button" class="color-choice" data-color="#e07593" style="background:#e07593"></button><button type="button" class="color-choice" data-color="#e8a44c" style="background:#e8a44c"></button><button type="button" class="color-choice" data-color="#55a990" style="background:#55a990"></button></div></label><button class="save-habit" value="default">Create habit</button></form></dialog>
+    <style>.auth-brand img,.brand img{width:27px;height:27px;vertical-align:-5px;margin-right:8px}.day-picker{display:flex;gap:7px;margin:9px 0 17px}.day-picker button{width:32px;height:32px;border-radius:50%;background:#f0edf7;color:#5b5567;font-weight:700}.optional{font-weight:400;color:#8a8592;font-size:11px}.rpg-section{margin-top:36px}.level-pill{background:#ede7ff;color:#684dcd;border-radius:999px;padding:7px 11px;font-size:12px;font-weight:700}.rpg-card{display:grid;grid-template-columns:1.15fr 1fr;gap:25px;padding:20px;border-radius:18px;background:#fff;border:1px solid #e8e4f0;box-shadow:0 12px 32px #4a385618}.world-scene{min-height:178px;border-radius:14px;position:relative;overflow:hidden;background:linear-gradient(#8fd8ff 0 59%,#74cc73 60%);border:4px solid #e1f6ff}.world-scene:after{content:"";position:absolute;inset:61% 0 0;background:repeating-linear-gradient(90deg,#5ebc65 0 35px,#69c86d 35px 70px)}.world-scene span{position:absolute;z-index:1}.world-name{top:12px;left:13px;color:#1e526a;background:#ffffffbd;padding:5px 8px;border-radius:7px;font-size:11px;font-weight:700}.character{font-size:54px;left:45%;bottom:21px;filter:drop-shadow(0 5px 2px #235e2660);animation:bob 2.5s ease-in-out infinite}.plant{font-size:33px;bottom:15px}.plant-one{left:15%}.plant-two{right:14%}.plant-three{right:31%;font-size:25px}.cloud{font-size:31px;opacity:.8;top:23px}.cloud-one{left:15%}.cloud-two{right:11%;top:46px;font-size:22px}@keyframes bob{50%{transform:translateY(-7px)}}.rpg-stats{display:grid;align-content:center;gap:18px}.rpg-stats strong{display:block;font-family:Fraunces,serif;font-size:20px;margin:4px 0 7px}.meter{height:9px;background:#e9e7ed;border-radius:10px;overflow:hidden}.meter i{display:block;height:100%;width:100%;border-radius:10px;background:linear-gradient(90deg,#fbbf47,#ed7a44);transition:width .45s ease}.xp-meter i{background:linear-gradient(90deg,#7567e8,#d673ec)}.rpg-stats p{font-size:12px}.badge-row{grid-column:1/-1;display:flex;gap:9px;flex-wrap:wrap}.badge{padding:8px 10px;border-radius:10px;background:#f5f2fa;color:#817a8e;font-size:12px;font-weight:700}.badge.unlocked{background:#e7f9ed;color:#287343}.badge b{font-size:16px;margin-right:5px}@media(max-width:760px){dialog form{padding:24px}.habit-card{min-height:65px}.delete-habit,.check-button{min-width:36px;min-height:36px}.heatmap-card{padding:16px}.section-heading{gap:10px}.activity-total{white-space:nowrap}.rpg-card{grid-template-columns:1fr;gap:18px}.world-scene{min-height:150px}.rpg-stats{gap:14px}}</style>
+    <script src="app.js"></script>
+    <script src="game.js"></script>
+    <script src="quests.js"></script>
+    <script src="pets.js"></script>
+    <script src="flow.js"></script>
+    <script src="v2.js"></script>
+  </body>
+</html>

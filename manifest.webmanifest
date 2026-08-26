@@ -1,0 +1,12 @@
+{
+  "name": "Flowin — Habit RPG",
+  "short_name": "Flowin",
+  "description": "A gentle habit tracker that grows with you.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#29253d",
+  "theme_color": "#29253d",
+  "icons": [
+    { "src": "flowin-logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
